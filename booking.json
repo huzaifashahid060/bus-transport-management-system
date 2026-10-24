@@ -1,0 +1,29 @@
+[
+    {
+        "booking_id": "1001",
+        "passenger_name": "Ahmed Khan",
+        "passenger_age": 24,
+        "route_id": "R101",
+        "seats": 2,
+        "total_fare": 2400,
+        "status": "Cancelled"
+    },
+    {
+        "booking_id": "1002",
+        "passenger_name": "Ali Raza",
+        "passenger_age": 30,
+        "route_id": "R102",
+        "seats": 3,
+        "total_fare": 6000,
+        "status": "Confirmed"
+    },
+    {
+        "booking_id": "1003",
+        "passenger_name": "Usman Ali",
+        "passenger_age": 21,
+        "route_id": "R103",
+        "seats": 1,
+        "total_fare": 800,
+        "status": "Cancelled"
+    }
+]
