@@ -1,32 +1,10 @@
-"""
-Smart Bus Ticket Booking & Reservation System
-Console application - Python 3, built-in features only.
-
-All data is kept in memory. When the program closes, the records are lost.
-"""
-
-
+from data import (load_route, load_booking)
 CITIES = ("Karachi", "Hyderabad", "Sukkur", "Mirpur Khas", "Lahore")
-
-routes = [
-    {"route_id": "R101", "departure_city": "Karachi", "destination_city": "Hyderabad",
-     "departure_time": "08:00 AM", "ticket_price": 1200, "total_seats": 40, "available_seats": 40},
-    {"route_id": "R102", "departure_city": "Karachi", "destination_city": "Sukkur",
-     "departure_time": "09:30 AM", "ticket_price": 2000, "total_seats": 36, "available_seats": 36},
-    {"route_id": "R103", "departure_city": "Hyderabad", "destination_city": "Mirpur Khas",
-     "departure_time": "11:00 AM", "ticket_price": 800, "total_seats": 32, "available_seats": 32},
-    {"route_id": "R104", "departure_city": "Karachi", "destination_city": "Lahore",
-     "departure_time": "07:00 PM", "ticket_price": 5000, "total_seats": 45, "available_seats": 45},
-    {"route_id": "R105", "departure_city": "Sukkur", "destination_city": "Hyderabad",
-     "departure_time": "02:00 PM", "ticket_price": 1500, "total_seats": 30, "available_seats": 30},
-]
-
-bookings = []       
-booking_ids = set()  
-
+routes = load_route() 
+bookings = load_booking()
+booking_ids = {booking["booking_id"] for booking in bookings}
 
 def find_route(route_id):
-    """Return the route dictionary with this ID, or None if it does not exist."""
     for route in routes:
         if route["route_id"] == route_id:
             return route
@@ -141,7 +119,6 @@ def book_ticket():
     route_id = input("Route ID (example R101): ").strip().upper()
     seats_text = input("Number of seats: ").strip()
 
-    # --- validation (nothing is changed until every check passes) ---
     if name == "":
         print("Error: passenger name cannot be empty.")
         return
